@@ -1,0 +1,20 @@
+@charset "utf8";
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p
+blockquote,pre,abbr,address,cite,code,del,dfn,em,img,
+ins,kbd,p,q,samp,strong,sub,sup,var,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,summary,
+small,b,i,article,aside,canvas,details,figcaption,figure,footer,header,menu,nav,section,time,mark,audio,video{margin: 0;padding: 0; box-sizing: border-box;}
+
+article,aside,details,figcaption,figure,footer,header,menu,nav,section,video{display: block;}
+table{border-collapse: collapse;}
+fieldset,img{border: 0;}
+address,caption,cite,code,em,strong,th{font-style: normal;font-weight: normal;}
+ol,ul,li{list-style: none;}
+caption,th{text-align: left;}
+h1,h2,h3,h4,h5,h6,b,strong{font-size: 100%;font-weight: normal;}
+q::before,q::after{content: "";}
+abbr,acronym{border: 0;}
+img,input{vertical-align: middle;}
+hr{display: none;}
+a,a:hover,a:active,a:visited,a:focus{color: #fff;text-decoration: none;}
+#skipNavi,.blind{position: absolute;left: 0;top: 0;width: 0;height: 0;font-size: 0;line-height: 0;text-indent: -9999px;overflow: hidden;visibility: hidden;}

@@ -1,0 +1,9 @@
+@import url(reset.css);
+@import url(main.css);
+
+@import url('https://webfontworld.github.io/kopus/KoPubWorldBatang.css');
+
+html{font-family: "KoPubWorldBatang";}
+
+h2{font-size: 45px; text-align: center; font-weight: 700;}
+h3{font-size: 20px;font-weight: 700; color: #fff;}
