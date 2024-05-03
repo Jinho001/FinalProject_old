@@ -2,9 +2,22 @@
  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 
 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="com.zero.waste.mapper.MapMapper">
- 	<insert id="registMap" parameterType="MapVO">
- 		INSERT INTO shop (shopName, addr, lat, lng, category) 
- 		VALUES (#{shopName},#{addr}, 0, 0, 0)
- 	</insert>
- </mapper>
+<mapper namespace="com.zero.waste.mapper.MapMapper">
+	<insert id="registMap" parameterType="MapVO">
+    	INSERT INTO shop (shopName, addr, lat, lng, category) 
+    	VALUES (#{shopName}, #{addr}, #{lat}, #{lng}, #{category})
+	</insert>
+	<select id="selectMapView" resultType="MapVO">
+		SELECT * FROM shop
+	</select>
+	<resultMap type="com.zero.map.MapDTO" id="map">
+		<result property="type" column="type" />
+		<result property="keyword" column="keyword" />
+	</resultMap>
+	<select id="searchKeyword" resultType="map">
+		select * from shop where ${type} like '%${keyword}%'
+	</select>
+	<select id="selectCategory" resultType="MapVO" parameterType="_int">
+		select * from shop where category = #{value} limit 100
+	</select>
+</mapper>
