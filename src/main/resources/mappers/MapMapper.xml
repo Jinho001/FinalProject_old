@@ -13,7 +13,15 @@
 
 <select id="getMapAll" resultType="MapVO">
  SELECT * FROM shop     WHERE         (6371 * ACOS(             COS(RADIANS(lat)) * COS(RADIANS(#{lat})) * 
-    COS(RADIANS(#{lng}) - RADIANS(lng)) +             SIN(RADIANS(lat)) * SIN(RADIANS(#{lat}))         ))          &lt; 10     LIMIT 0, 30
+    COS(RADIANS(#{lng}) - RADIANS(lng)) +             SIN(RADIANS(lat)) * SIN(RADIANS(#{lat}))         )) 
+    
+     ORDER BY 
+     (6371 * ACOS(
+         COS(RADIANS(lat)) * COS(RADIANS(#{lat})) * 
+         COS(RADIANS(#{lng}) - RADIANS(lng)) + 
+         SIN(RADIANS(lat)) * SIN(RADIANS(#{lat}))
+     ))
 
 </select>
+
 </mapper>
