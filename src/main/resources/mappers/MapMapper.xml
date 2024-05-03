@@ -2,9 +2,18 @@
  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 
 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="com.zero.waste.mapper.MapMapper">
- 	<insert id="registMap" parameterType="MapVO">
- 		INSERT INTO shop (shopName, addr, lat, lng, category) 
- 		VALUES (#{shopName},#{addr}, 0, 0, 0)
- 	</insert>
- </mapper>
+<mapper namespace="com.zero.waste.mapper.MapMapper">
+    <insert id="registMap" parameterType="MapVO">
+        INSERT INTO shop (shopName, addr, lat, lng, category) 
+        VALUES (#{shopName}, #{addr}, #{lat}, #{lng}, #{category})
+    </insert>
+    <select id="selectMapView" resultType="MapVO">
+        SELECT * FROM shop
+    </select>
+
+<select id="getMapAll" resultType="MapVO">
+ SELECT * FROM shop     WHERE         (6371 * ACOS(             COS(RADIANS(lat)) * COS(RADIANS(#{lat})) * 
+    COS(RADIANS(#{lng}) - RADIANS(lng)) +             SIN(RADIANS(lat)) * SIN(RADIANS(#{lat}))         ))          &lt; 10     LIMIT 0, 30
+
+</select>
+</mapper>
